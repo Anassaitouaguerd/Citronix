@@ -13,7 +13,8 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @AllArgsConstructor
 
-public class VentUpdateReqDTO {
+public class VenteReqDTO {
+
     @NotNull(message = "amount is mandatory")
     @JsonFormat(pattern = "yyyy-MM-dd")
     private LocalDate date;
@@ -27,4 +28,3 @@ public class VentUpdateReqDTO {
     @NotNull(message = "revenu is mandatory")
     private Double revenu;
 }
-

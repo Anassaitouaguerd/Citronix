@@ -5,32 +5,25 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-
 @Entity
-@Table(name = "vente")
+@Table(name = "recolte_details")
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
-public class Vente {
+@AllArgsConstructor
+
+public class RecolteDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "date")
-    private LocalDate date;
-
-    @Column(name = "unitPrice")
-    private Double unitPrice;
-
-    @Column(name = "client")
-    private String client;
-
-    @Column(name = "revenue")
-    private Double revenue;
+    @Column(nullable = false)
+    private Double quantity;
 
     @ManyToOne
     @JoinColumn(name = "recolte_id", nullable = false)
     private Recolte recolte;
+
+    @ManyToOne
+    @JoinColumn(name = "arbre_id", nullable = false)
+    private Arbre arbre;
 }

@@ -12,7 +12,7 @@ import java.time.LocalDate;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class ArbreCreateReqDTO {
+public class ArbreReqDTO {
 
     @NotNull(message = "plantationDate is mandatory")
     @JsonFormat(pattern = "yyyy-MM-dd")

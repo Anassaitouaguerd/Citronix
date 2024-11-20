@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Table(name = "recolte")
@@ -29,4 +30,10 @@ public class Recolte {
 
     @Column(name = "totalQuantity")
     private Double totalQuantity;
+
+    @OneToMany(mappedBy = "recolte", cascade = CascadeType.ALL)
+    private List<RecolteDetails> recolteDetails;
+
+    @OneToMany(mappedBy = "recolte")
+    private List<Vente> vents;
 }

@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class RecolteCreateReqDTO {
+public class RecolteReqDTO {
 
     @NotNull(message = "season type is mandatory")
     private SeasonType season;

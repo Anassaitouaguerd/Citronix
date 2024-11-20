@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class FarmeCreateReqDTO {
+public class FermeReqDTO {
 
     @NotBlank(message = "name is mandatory")
     @Size(min = 3, max = 255, message = "name must be between 3 and 255 characters")
