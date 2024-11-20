@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Table(name = "arbre")
@@ -22,5 +23,12 @@ public class Arbre {
 
     @Column(name = "status")
     private TreeStatus status;
+
+    @ManyToOne
+    @JoinColumn(name = "champ_id", nullable = false)
+    private Champ champ;
+
+    @OneToMany(mappedBy = "arbre")
+    private List<RecolteDetails> recolteDetails;
 
 }
