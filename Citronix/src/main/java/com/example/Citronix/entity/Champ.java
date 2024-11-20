@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Entity
 @Table(name = "champ")
 @Data
@@ -19,5 +21,12 @@ public class Champ {
     private String name;
 
     @Column(name = "area")
-    private double area;
+    private Double area;
+
+    @ManyToOne
+    @JoinColumn(name = "ferme_id", nullable = false)
+    private Ferme ferme;
+
+    @OneToMany(mappedBy = "champ", cascade = CascadeType.ALL)
+    private List<Arbre> arbres;
 }
