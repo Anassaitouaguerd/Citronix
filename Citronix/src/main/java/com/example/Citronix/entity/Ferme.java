@@ -7,6 +7,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Table(name = "ferme")
@@ -25,7 +26,10 @@ public class Ferme {
     private String location;
 
     @Column(name = "area")
-    private double area;
+    private Double area;
+
+    @OneToMany(mappedBy = "ferme", cascade = CascadeType.ALL)
+    private List<Champ> champs;
 
     @Column(name = "creationDate")
     private LocalDateTime creationDate = LocalDateTime.now();
