@@ -13,7 +13,6 @@ public interface ChampMapper {
     @Mapping(target = "ferme", ignore = true)
     Champ toEntity(ChampDTO champDTO);
 
-    @Mapping(target = "id", ignore = true)
     @Mapping(target = "ferme", ignore = true)
     @Mapping(target = "arbres", ignore = true)
     Champ toEntity(ChampReqDTO champReqDTO);
