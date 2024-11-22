@@ -25,15 +25,15 @@ public class RecolteService {
                 ));
     }
 
-    @Transactional
-    public RecolteDTO updateRecolte(Long id , RecolteReqDTO reqDTO) {
-        Recolte existingRecolte = recolteRepository.findById(id)
-                                     .orElseThrow(() -> new RuntimeException("Recolte not found"));
-
-        Recolte recolte = recolteMapper.toEntity(reqDTO);
-        recolte.setId(existingRecolte.getId());
-        return recolteMapper.toDTO(recolte);
-    }
+//    @Transactional
+//    public RecolteDTO updateRecolte(Long id , RecolteReqDTO reqDTO) {
+//        Recolte existingRecolte = recolteRepository.findById(id)
+//                                     .orElseThrow(() -> new RuntimeException("Recolte not found"));
+//
+//        Recolte recolte = recolteMapper.toEntity(reqDTO);
+//        recolte.setId(existingRecolte.getId());
+//        return recolteMapper.toDTO(recolte);
+//    }
 
     @Transactional(readOnly = true)
     public List<RecolteDTO> getAllRecoltes() {

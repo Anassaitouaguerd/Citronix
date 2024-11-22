@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -22,14 +23,15 @@ public class Recolte {
     @Column(name = "season")
     private SeasonType season;
 
-    @Column(name = "amount")
-    private Double amount;
-
-    @Column(name = "HarvestDate")
-    private LocalDateTime HarvestDate = LocalDateTime.now();
+    @Column(name = "recolteDate")
+    private LocalDate recolteDate = LocalDate.now();
 
     @Column(name = "totalQuantity")
     private Double totalQuantity;
+
+    @ManyToOne
+    @JoinColumn(name = "champ_id")
+    private Champ champ;
 
     @OneToMany(mappedBy = "recolte", cascade = CascadeType.ALL)
     private List<RecolteDetails> recolteDetails;

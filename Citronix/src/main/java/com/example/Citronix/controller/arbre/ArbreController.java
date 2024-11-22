@@ -14,6 +14,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/v1/arbre")
 @RequiredArgsConstructor
+@CrossOrigin("*")
 public class ArbreController {
     private final ArbreService arbreService;
 
@@ -28,8 +29,19 @@ public class ArbreController {
         return ResponseEntity.ok(arbreService.updateArbre(id , Req));
     }
 
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<?> deleteArbre(@PathVariable Long id){
+        arbreService.deleteArbre(id);
+        return ResponseEntity.ok().build();
+    }
+
     @GetMapping("/all")
     public ResponseEntity<List<ArbreDTO>> getAllArbres() {
         return ResponseEntity.ok(arbreService.getAllArbres());
+    }
+
+    @GetMapping("/get/{id}")
+    public ResponseEntity<ArbreDTO> getArbre(@PathVariable Long id) {
+        return ResponseEntity.ok(arbreService.getArbreById(id));
     }
 }

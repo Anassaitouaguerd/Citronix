@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2024-11-19T22:21:36+0100",
+    date = "2024-11-22T09:42:32+0100",
     comments = "version: 1.5.5.Final, compiler: javac, environment: Java 22.0.2 (Oracle Corporation)"
 )
 @Component
@@ -23,8 +23,8 @@ public class ArbreMapperImpl implements ArbreMapper {
 
         Arbre.ArbreBuilder arbre = Arbre.builder();
 
-        arbre.plantationDate( arbreDTO.getPlantationDate() );
         arbre.status( arbreDTO.getStatus() );
+        arbre.plantationDate( arbreDTO.getPlantationDate() );
 
         return arbre.build();
     }
@@ -37,8 +37,8 @@ public class ArbreMapperImpl implements ArbreMapper {
 
         Arbre.ArbreBuilder arbre = Arbre.builder();
 
-        arbre.plantationDate( arbreReqDTO.getPlantationDate() );
         arbre.status( arbreReqDTO.getStatus() );
+        arbre.plantationDate( arbreReqDTO.getPlantationDate() );
 
         return arbre.build();
     }

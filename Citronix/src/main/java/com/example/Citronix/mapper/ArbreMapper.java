@@ -11,11 +11,13 @@ public interface ArbreMapper {
     @Mapping(target = "champ", ignore = true)
     @Mapping(target = "recolteDetails", ignore = true)
     @Mapping(target = "id", ignore = true)
+    @Mapping(target = "status", source = "status")
     Arbre toEntity(ArbreDTO arbreDTO);
 
     @Mapping(target = "champ", ignore = true)
     @Mapping(target = "recolteDetails", ignore = true)
     @Mapping(target = "id", ignore = true)
+    @Mapping(target = "status", source = "status")
     Arbre toEntity(ArbreReqDTO arbreReqDTO);
 
     @Mapping(source = "champ.id", target = "champId")

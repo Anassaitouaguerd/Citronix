@@ -14,7 +14,7 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2024-11-19T21:56:39+0100",
+    date = "2024-11-22T09:42:32+0100",
     comments = "version: 1.5.5.Final, compiler: javac, environment: Java 22.0.2 (Oracle Corporation)"
 )
 @Component
@@ -85,9 +85,9 @@ public class VenteMapperImpl implements VenteMapper {
 
         recolte1.setId( recolte.getId() );
         recolte1.setSeason( recolte.getSeason() );
-        recolte1.setAmount( recolte.getAmount() );
-        recolte1.setHarvestDate( recolte.getHarvestDate() );
+        recolte1.setRecolteDate( recolte.getRecolteDate() );
         recolte1.setTotalQuantity( recolte.getTotalQuantity() );
+        recolte1.setChamp( recolte.getChamp() );
         List<RecolteDetails> list = recolte.getRecolteDetails();
         if ( list != null ) {
             recolte1.setRecolteDetails( new ArrayList<RecolteDetails>( list ) );

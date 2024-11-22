@@ -6,7 +6,8 @@ import lombok.Getter;
 public enum TreeStatus {
     YOUNG("young"),
     PRODUCTIVE("productive"),
-    NON_PRODUCTIVE("non-productive");
+    NON_PRODUCTIVE("non-productive"),
+    DEAD("dead");
 
     private final String status;
     TreeStatus(String status) {
