@@ -5,6 +5,7 @@ import com.example.Citronix.DTO.arbre.ArbreReqDTO;
 import com.example.Citronix.entity.Arbre;
 import com.example.Citronix.entity.Champ;
 import com.example.Citronix.entity.enums.TreeStatus;
+import com.example.Citronix.exeptions.TreePlantingException;
 import com.example.Citronix.mapper.ArbreMapper;
 import com.example.Citronix.repository.arbre.ArbreRepository;
 import com.example.Citronix.repository.champ.ChampRepository;
@@ -26,6 +27,12 @@ public class ArbreService {
 
     @Transactional
     public ArbreDTO createArbre(ArbreReqDTO arbreReqDTO) {
+
+        int plantationMonth = arbreReqDTO.getPlantationDate().getMonthValue();
+        if(plantationMonth < 3 || plantationMonth > 5){
+            throw new TreePlantingException();
+        }
+
         Champ champ = champRepository.findById(arbreReqDTO.getChamp_id())
                 .orElseThrow(() -> new RuntimeException("Champ not found"));
 
@@ -39,6 +46,11 @@ public class ArbreService {
 
     @Transactional
     public ArbreDTO updateArbre(Long id , ArbreReqDTO arbreReqDTO) {
+
+        int plantationMonth = arbreReqDTO.getPlantationDate().getMonthValue();
+        if(plantationMonth < 3 || plantationMonth > 5){
+            throw new TreePlantingException();
+        }
 
         Arbre existingArbre = arbreRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Arbre not found"));

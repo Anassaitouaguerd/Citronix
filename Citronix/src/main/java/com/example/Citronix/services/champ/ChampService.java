@@ -4,6 +4,7 @@ import com.example.Citronix.DTO.champ.ChampDTO;
 import com.example.Citronix.DTO.champ.ChampReqDTO;
 import com.example.Citronix.entity.Champ;
 import com.example.Citronix.entity.Ferme;
+import com.example.Citronix.exeptions.NumberOfChampsLimitException;
 import com.example.Citronix.mapper.ChampMapper;
 import com.example.Citronix.repository.champ.ChampRepository;
 import com.example.Citronix.repository.ferme.FermeRepository;
@@ -29,6 +30,10 @@ public class ChampService {
         Optional<Ferme> ferme = Optional.ofNullable(fermeRepository.findById(reqDTO.getFerme_id())
                 .orElseThrow(() -> new RuntimeException("Ferme not found")));
 
+        Long countChampsByFermeId = champRepository.countAllChampByFermeId(reqDTO.getFerme_id());
+        if(countChampsByFermeId >= 10){
+            throw new NumberOfChampsLimitException();
+        }
         Champ champ = champMapper.toEntity(reqDTO);
         champ.setFerme(ferme.get());
 
