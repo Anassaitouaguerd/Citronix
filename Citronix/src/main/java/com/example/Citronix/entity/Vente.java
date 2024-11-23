@@ -21,8 +21,8 @@ public class Vente {
     @Column(name = "date")
     private LocalDate date;
 
-    @Column(name = "unitPrice")
-    private Double unitPrice;
+    @Column(name = "untilPrice")
+    private Double untilPrice;
 
     @Column(name = "client")
     private String client;

@@ -10,3 +10,4 @@ public class RecolteDetailDTO {
     private Long arbreId;
     private Double quantity;
 }
+

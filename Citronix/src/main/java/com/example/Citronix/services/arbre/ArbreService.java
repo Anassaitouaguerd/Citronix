@@ -82,7 +82,7 @@ public class ArbreService {
         ArbreDTO arbreDTO = arbreMapper.toDTO(arbre);
         int age = getArbreAge(arbre.getPlantationDate());
         arbreDTO.setAge(age);
-        arbreDTO.setProductivity(getArbreProductivity(age));
+        arbreDTO.setProductivity(getArbreProductivityByAge(age));
         return arbreDTO;
     }
 
@@ -98,7 +98,7 @@ public class ArbreService {
 
         ArbreDTO arbreDTO = arbreMapper.toDTO(arbre);
         arbreDTO.setAge(getArbreAge(arbre.getPlantationDate()));
-        arbreDTO.setProductivity(getArbreProductivity(arbreDTO.getAge()));
+        arbreDTO.setProductivity(getArbreProductivityByAge(arbreDTO.getAge()));
         return arbreDTO;
     }
 
@@ -106,11 +106,18 @@ public class ArbreService {
         return Period.between(plantationDate, LocalDate.now()).getYears();
     }
 
-    private Double getArbreProductivity(int age) {
+    private Double getArbreProductivityByAge(int age) {
         if (age < 3) return 2.5;
         if (age <= 10) return 12.0;
         if (age <= 20) return 20.0;
         return 0.0;
+    }
+
+    public Double getProductivityByArbreId(Long id) {
+        Arbre arbre = arbreRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Arbre not found"));
+        int age = getArbreAge(arbre.getPlantationDate());
+        return getArbreProductivityByAge(age);
     }
 
     private TreeStatus getArbreStatus(int age) {

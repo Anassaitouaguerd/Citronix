@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2024-11-20T14:46:48+0100",
+    date = "2024-11-22T21:10:23+0100",
     comments = "version: 1.5.5.Final, compiler: javac, environment: Java 22.0.2 (Oracle Corporation)"
 )
 @Component
@@ -21,13 +21,13 @@ public class ChampMapperImpl implements ChampMapper {
             return null;
         }
 
-        Champ champ = new Champ();
+        Champ.ChampBuilder champ = Champ.builder();
 
-        champ.setId( champDTO.getId() );
-        champ.setName( champDTO.getName() );
-        champ.setArea( champDTO.getArea() );
+        champ.id( champDTO.getId() );
+        champ.name( champDTO.getName() );
+        champ.area( champDTO.getArea() );
 
-        return champ;
+        return champ.build();
     }
 
     @Override
@@ -36,12 +36,12 @@ public class ChampMapperImpl implements ChampMapper {
             return null;
         }
 
-        Champ champ = new Champ();
+        Champ.ChampBuilder champ = Champ.builder();
 
-        champ.setName( champReqDTO.getName() );
-        champ.setArea( champReqDTO.getArea() );
+        champ.name( champReqDTO.getName() );
+        champ.area( champReqDTO.getArea() );
 
-        return champ;
+        return champ.build();
     }
 
     @Override
