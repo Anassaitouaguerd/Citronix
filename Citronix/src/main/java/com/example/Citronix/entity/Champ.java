@@ -1,7 +1,9 @@
 package com.example.Citronix.entity;
 
 import jakarta.persistence.*;
+import jdk.jshell.Snippet;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -12,6 +14,7 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 public class Champ {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
