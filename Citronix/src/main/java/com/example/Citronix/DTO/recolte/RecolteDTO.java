@@ -21,6 +21,5 @@ public class RecolteDTO {
     private Double totalQuantity;
     private LocalDate recolteDate;
     private Long champId;
-    private List<VenteDTO> vents;
-//    private List<RecolteDetailsDTO> recolteDetails;
+    private List<RecolteDetailDTO> recolteDetails;
 }

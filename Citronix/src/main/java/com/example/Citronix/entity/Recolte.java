@@ -3,6 +3,7 @@ package com.example.Citronix.entity;
 import com.example.Citronix.entity.enums.SeasonType;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -13,6 +14,7 @@ import java.util.List;
 @Entity
 @Table(name = "recolte")
 @Data
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
 public class Recolte {
@@ -24,7 +26,7 @@ public class Recolte {
     private SeasonType season;
 
     @Column(name = "recolteDate")
-    private LocalDate recolteDate = LocalDate.now();
+    private LocalDate recolteDate;
 
     @Column(name = "totalQuantity")
     private Double totalQuantity;
@@ -36,6 +38,4 @@ public class Recolte {
     @OneToMany(mappedBy = "recolte", cascade = CascadeType.ALL)
     private List<RecolteDetails> recolteDetails;
 
-    @OneToMany(mappedBy = "recolte")
-    private List<Vente> vents;
 }
