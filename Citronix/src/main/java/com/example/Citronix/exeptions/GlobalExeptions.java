@@ -51,4 +51,49 @@ public class GlobalExeptions {
         );
         return new ResponseEntity<>(exceptionResponse, HttpStatus.BAD_REQUEST);
     }
+
+    @ExceptionHandler(RecolteAlreadyExistsForThisSeason.class)
+    public ResponseEntity<FormatExceptionResponse> handleRecolteAlreadyExistsForThisSeason(RecolteAlreadyExistsForThisSeason ex) {
+        FormatExceptionResponse exceptionResponse = new FormatExceptionResponse(
+                LocalDateTime.now(),
+                ex.getMessage(),
+                "RECOLTE_ALREADY_EXISTS",
+                HttpStatus.BAD_REQUEST.value()
+        );
+        return new ResponseEntity<>(exceptionResponse, HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler(ArbreNotBelongsToChampException.class)
+    public ResponseEntity<FormatExceptionResponse> handleArbreNotBelongsToChampException(ArbreNotBelongsToChampException ex) {
+        FormatExceptionResponse exceptionResponse = new FormatExceptionResponse(
+                LocalDateTime.now(),
+                ex.getMessage(),
+                "ARBRE_NOT_BELONGS_TO_CHAMP",
+                HttpStatus.BAD_REQUEST.value()
+        );
+        return new ResponseEntity<>(exceptionResponse, HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler(ValidateRecolteQuantityException.class)
+    public ResponseEntity<FormatExceptionResponse> handleValidateRecolteQuantityException(ValidateRecolteQuantityException ex) {
+        FormatExceptionResponse exceptionResponse = new FormatExceptionResponse(
+                LocalDateTime.now(),
+                ex.getMessage(),
+                "RECOLTE_QUANTITY_EXCEPTION",
+                HttpStatus.BAD_REQUEST.value()
+        );
+        return new ResponseEntity<>(exceptionResponse, HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler(VenteDateAfterRecolteDateException.class)
+    public ResponseEntity<FormatExceptionResponse> handleVenteDateAfterRecolteDateException(VenteDateAfterRecolteDateException ex) {
+        FormatExceptionResponse exceptionResponse = new FormatExceptionResponse(
+                LocalDateTime.now(),
+                ex.getMessage(),
+                "VENTE_DATE_AFTER_RECOLTE_DATE",
+                HttpStatus.BAD_REQUEST.value()
+        );
+        return new ResponseEntity<>(exceptionResponse, HttpStatus.BAD_REQUEST);
+    }
+
 }
