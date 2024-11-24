@@ -1,0 +1,83 @@
+classDiagram
+    class Ferme {
+        -Long id
+        -String nom
+        -String localisation
+        -Double superficie
+        -LocalDate dateCreation
+        +createFerme(Ferme ferme) Ferme
+        +readFerme(Long id) Ferme
+        +updateFerme(Ferme ferme) Ferme
+        +deleteFerme(Long id) void
+    }
+
+    class Champ {
+        -Long id
+        -String nom
+        -Double superficie
+        -Ferme ferme
+        +createChamp(Champ champ) Champ
+        +readChamp(Long id) Champ
+        +updateChamp(Champ champ) Champ
+        +deleteChamp(Long id) void
+    }
+
+    class Arbre {
+        -Long id
+        -LocalDate datePlantation
+        -Champ champ
+        +getAge() int
+        +getProductivite() double
+        +createArbre(Arbre arbre) Arbre
+        +readArbre(Long id) Arbre
+        +updateArbre(Arbre arbre) Arbre
+        +deleteArbre(Long id) void
+    }
+
+    class Recolte {
+        -Long id
+        -Saison saison
+        -LocalDate dateRecolte
+        -Double quantiteTotale
+        +createRecolte(Recolte recolte) Recolte
+        +readRecolte(Long id) Recolte
+        +updateRecolte(Recolte recolte) Recolte
+        +deleteRecolte(Long id) void
+    }
+
+    class RecolteDetail {
+        -Long id
+        -Recolte recolte
+        -Arbre arbre
+        -Double quantite
+        +createRecolteDetail(RecolteDetail detail) RecolteDetail
+        +readRecolteDetail(Long id) RecolteDetail
+        +updateRecolteDetail(RecolteDetail detail) RecolteDetail
+        +deleteRecolteDetail(Long id) void
+    }
+
+    class Vente {
+        -Long id
+        -LocalDate dateVente
+        -Double prixUnitaire
+        -Recolte recolte
+        -String client
+        +createVente(Vente vente) Vente
+        +readVente(Long id) Vente
+        +updateVente(Vente vente) Vente
+        +deleteVente(Long id) void
+    }
+
+    class Saison {
+        <<enumeration>>
+        HIVER
+        PRINTEMPS
+        ETE
+        AUTOMNE
+    }
+
+    Ferme "1" -- "0..*" Champ
+    Champ "1" -- "0..*" Arbre
+    Arbre "1" -- "0..*" RecolteDetail
+    Recolte "1" -- "0..*" RecolteDetail
+    Recolte "1" -- "0..*" Vente
