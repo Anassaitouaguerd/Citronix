@@ -1,23 +1,27 @@
 package com.example.Citronix.DTO.recolte;
 
 import com.example.Citronix.entity.enums.SeasonType;
+import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.time.LocalDate;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class RecolteReqDTO {
 
-    @NotNull(message = "season type is mandatory")
-    private SeasonType season;
+    @NotNull(message = "Recolte date is mandatory")
+    private LocalDate recolteDate;
 
-    @NotNull(message = "amount is mandatory")
-    private Double amount;
+    @NotNull(message = "comp id is mandatory")
+    private Long champId;
 
-    @NotNull(message = "total quantity is mandatory")
-    private Double totalQuantity;
+    @NotEmpty(message = "Recolte details is mandatory")
+    private List<RecolteDetailsReqDTO> recolteDetails;
 
 }

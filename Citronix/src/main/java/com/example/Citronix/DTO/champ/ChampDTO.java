@@ -11,9 +11,8 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ChampDTO {
-    Long id;
-    String name;
-    Double area;
-    Long ferme_id;
-    List<Arbre> arbres;
+    private Long id;
+    private String name;
+    private Double area;
+    private Long ferme_id;
 }

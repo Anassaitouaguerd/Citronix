@@ -9,14 +9,12 @@ import org.mapstruct.Mapping;
 @Mapper(componentModel = "spring")
 public interface VenteMapper {
 
-    @Mapping(target = "recolte" , ignore = true)
-    @Mapping(target = "recolte.id" , source = "recolte.id")
-    Vente toEntity(VenteDTO venteDTO);
-
-    @Mapping(target = "recolte" , ignore = true)
-    @Mapping(target = "id" , ignore = true)
-    Vente toEntity(VenteReqDTO ventReqDTO);
-
+    @Mapping(target = "recolte", source = "recolte.id")
     VenteDTO toDTO(Vente vente);
+
+    @Mapping(target = "id", ignore = true)
+    @Mapping(target = "recolte", ignore = true)
+    @Mapping(target = "revenue", ignore = true)
+    Vente toEntity(VenteReqDTO ventReqDTO);
 
 }

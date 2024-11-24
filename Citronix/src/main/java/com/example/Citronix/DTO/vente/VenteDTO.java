@@ -9,11 +9,10 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class VenteDTO {
-    Long id;
-    String date;
-    String untilPrice;
-    String client;
-    Double type;
-    String revenue;
-    Recolte recolte;
+    private Long id;
+    private String date;
+    private Double untilPrice;
+    private String client;
+    private Double revenue;
+    private Long recolte;
 }

@@ -18,7 +18,9 @@ public class ArbreReqDTO {
     @JsonFormat(pattern = "yyyy-MM-dd")
     private LocalDate plantationDate;
 
-    @NotNull(message = "status is mandatory")
     private TreeStatus status;
+
+    @NotNull(message = "champ_id is mandatory")
+    private Long champ_id;
 
 }

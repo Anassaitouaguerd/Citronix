@@ -17,5 +17,9 @@ public class ChampReqDTO {
     private String name;
 
     @NotNull(message = "area is mandatory")
+    @Size(min = 1000, message = "area must be greater than 1000 m²")
     private Double area;
+
+    @NotNull(message = "ferme_id is mandatory")
+    private Long ferme_id;
 }
